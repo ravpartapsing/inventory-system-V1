@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb://localhost/inventoryStore",
+    "secret": "asdfasdfasdf"
+}

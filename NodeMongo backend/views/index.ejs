@@ -1,0 +1,321 @@
+
+<!-- saved from url=(0035)https://www.appstorescreenshot.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:200,300.400,600,800"/>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Arvo:400,700|Cabin:400,700|Catamaran:400,700|Droid+Sans:400,700|Gloria+Hallelujah|Indie+Flower|Josefin+Sans:400,700|Lato:400,700|Lobster+Two:400,700|Poiret+One|Poppins:300,600|Quicksand:400,700|Raleway:400,700|Roboto:300,700|Ubuntu:300,600|Nunito:300,700" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       
+  <!-- <link rel="stylesheet" href="./App Store Screenshot Generator _ Create Beautiful Screenshots for iOS and Android in Minutes_files/css"> -->
+      <link rel="stylesheet" href="/style.css">
+      <link rel="icon" type="image/png" href="https://www.appstorescreenshot.com/images/screenshot_icon.png" sizes="96x96">
+      <title>App Store Screenshot Generator | Create Beautiful Screenshots for iOS and Android in Minutes</title>
+      <meta name="description" content="Create beautiful app screenshots for iOS and Android in minutes.">
+      <meta name="keywords" content="App Store Sceenshot, App Screenshot, iOS Screenshot, iOS Screenshot Generator, App Screenshot Generator, iPhone Screenshot, iPhone Screenshot Generator, Android App Screenshot, Android Screenshot">
+      <!-- <script async="" src="/analytics.js.download"></script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+        ga('create', 'UA-85039437-1', 'auto');
+        ga('send', 'pageview');
+      </script> -->
+    </head>
+    <body>
+      <%-include('./sidebar.ejs')%>
+      <div id="mainwrapper">
+        <div id="header"><span id="aboutbutton">about</span><span id="logo">App Store Screenshot</span><span id="previewbutton">preview</span></div>
+        <div id="mainmenu"><span id="backgroundbutton">Background</span><span id="devicebutton">Device</span><span id="fontbutton">Font</span><span id="layoutbutton">Layout</span><span id="rotateMe">Tilt</span><span id="saveApp">Save App</span><span id="makepayment"><a href="/makepayment">Buy Premium</a></span> </div>
+        <div id="devicelist" class="hidden">
+          <div class="devicebox d1"></div>
+          <div class="devicebox d2"></div>
+          <div class="devicebox d3"></div>
+          <div class="devicebox d4"></div>
+          <div class="devicebox d5"></div>
+          <div class="devicebox d6"></div>
+          <div class="devicebox d7"></div>
+          <div class="devicebox d8"></div>
+          <div class="devicebox d9"></div>
+          <div class="devicebox d10"></div>
+          <div class="devicebox d11"></div>
+          <div class="devicebox d12"></div>
+          <div class="devicebox d13"></div>
+          <div class="devicebox d14"></div>
+          <div class="devicebox d15"></div>
+          <div class="devicebox d16"></div>
+          <div class="devicebox d17"></div>
+          <div class="devicebox d18"></div>
+          <div class="devicebox d19"></div>
+          <div class="devicebox d20"></div>
+        </div>
+        <div id="fontparent" class="hidden">
+          <div id="fontsize">
+            <div class="text plusminus plus">-</div>
+            <div class="text">size</div>
+            <div class="text plusminus">+</div>
+          </div>
+          <div id="customfont">
+            <input placeholder="Custom Font Name">
+            <div id="fontinfo" class="hidden">Find all available fonts in the Mac app <b>Font Book</b></div>
+          </div>
+          <div id="predefinedfonts">
+            <div class="font f1"></div>
+            <div class="font f6"></div>
+            <div class="font f3"></div>
+            <div class="font f4"></div>
+            <div class="font f5"></div>
+            <div class="font f7"></div>
+            <div class="font f8"></div>
+            <div class="font f9"></div>
+            <div class="font f10"></div>
+            <div class="font f2"></div>
+            <div class="font f0 selected"></div>
+            <div class="font f11"></div>
+            <div class="font f12"></div>
+            <div class="font f14"></div>
+            <div class="font f15"></div>
+            <div class="font f16"></div>
+          </div>
+        </div>
+        <div id="layoutparent" class="hidden">
+          <div id="rotateparent">
+            <div id="rotater"></div>
+            <div id="rotatetext">rotate</div>
+          </div>
+          <div id="layoutoptionsparent">
+            <div id="l1" class="layout selectedlayout"></div>
+            <div id="l2" class="layout"></div>
+            <div id="l3" class="layout"></div>
+          </div>
+        </div>
+        <div id="background1" class="hidden"><span id="solidbutton">Solid</span><span id="gradientbutton">Gradient</span><span id="uploadImage"><input id="bgImage" type="file" onchange="previewFile()" style="display:none" > <label for="bgImage" style="cursor:pointer">Upload Image</label></span>
+        </div>
+        <div id="backgroundcolor1" class="hidden">
+          <label class="colorbox c1">
+            <input type="color" value="#FFFFFF">
+          </label>
+          <div class="colorbox c2"></div>
+          <div class="colorbox c3"></div>
+          <div class="colorbox c4"></div>
+          <div class="colorbox c5"></div>
+          <div class="colorbox c6"></div>
+          <div class="colorbox c7"></div>
+          <div class="colorbox c8"></div>
+          <div class="colorbox c9"></div>
+          <div class="colorbox c10"></div>
+          <div class="colorbox c11"></div>
+          <div class="colorbox c12"></div>
+        </div>
+        <div id="backgroundcolor2" class="hidden">
+          <label class="colorbox c1">
+            <input type="color" value="#FFFFFF">
+          </label>
+          <div class="colorbox c2"></div>
+          <div class="colorbox c3"></div>
+          <div class="colorbox c4"></div>
+          <div class="colorbox c5"></div>
+          <div class="colorbox c6"></div>
+          <div class="colorbox c7"></div>
+          <div class="colorbox c8"></div>
+          <div class="colorbox c9"></div>
+          <div class="colorbox c10"></div>
+          <div class="colorbox c11"></div>
+          <div class="colorbox c12"></div>
+        </div>
+        <div id="backgroundcolor3" class="hidden">
+          <label class="colorbox c1">
+            <input type="color" value="#FFFFFF">
+          </label>
+          <div class="colorbox c2"></div>
+          <div class="colorbox c3"></div>
+          <div class="colorbox c4"></div>
+          <div class="colorbox c5"></div>
+          <div class="colorbox c6"></div>
+          <div class="colorbox c7"></div>
+          <div class="colorbox c8"></div>
+          <div class="colorbox c9"></div>
+          <div class="colorbox c10"></div>
+          <div class="colorbox c11"></div>
+          <div class="colorbox c12"></div>
+        </div>
+
+        <%if(typeof appHtml!=="undefined"){%>
+          <div id="canvas">
+          <%-appHtml%>
+          </div>
+        <%}else{%>
+          
+        <div id="canvas">
+          
+          <div id="aligner">
+            <div class="screenshotparent selc"  onclick="selc(this)">
+              <div class="textp">
+                <p contenteditable="true" class="textparent">Click to edit this text</p>
+              </div>
+              <div class="deviceparent " >
+                <div class="aaa">
+                <img src="/iphone-black-mini.png" class="deviceholder">
+                <div class="screenshotwrapper">
+                  <div class="instruction">DROP YOUR<br><div class="ratioclass">16:9</div> ASPECT RATIO<br>SCREENSHOT HERE</div><img class="screenshotholder">
+                  <label class="filelabel">
+                    <input type="file" accept="image/*" multiple="true">
+                  </label>
+                </div>
+               </div>
+              </div>
+              <div class="deletebutton"></div>
+            </div>
+            <div class="screenshotparent" onclick="selc(this)">
+            <div class="textp">
+              <p contenteditable="true" class="textparent">Style <b><i>parts of the text</i></b><br>with ⌘+I and ⌘+B</p>
+              </div> 
+              <div class="deviceparent">
+                <div class="aaa">
+                <img src="/iphone-black-mini.png" class="deviceholder">
+                <div class="screenshotwrapper">
+                  <div class="instruction">DROP YOUR<br><div class="ratioclass">16:9</div> ASPECT RATIO<br>SCREENSHOT HERE</div><img class="screenshotholder">
+                  <label class="filelabel">
+                    <input type="file" accept="image/*" multiple="true">
+                  </label>
+                </div>
+                </div>
+              </div>
+              <div class="deletebutton"></div>
+            </div>
+            <div class="screenshotparent add"></div>
+          </div>
+          <div id="layoutsliderparent" class="hidden">
+            <div class="slider">
+              <div id="textdragger" class="dragger">text</div>
+            </div>
+            <div class="slider s2">
+              <div id="devicedragger" class="dragger">device</div>
+            </div>
+            <div class="slider s3">
+              <div id="scaledragger" class="dragger">scale</div>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    
+    <div id="aboutbackground" class="hidden"></div>
+    <div id="aboutwrapper" class="hidden">
+      <h3>ABOUT</h3>
+      <h1 class="maincontent">This tool lets you generate professional looking app screenshots in minutes. The generated screenshots will match App Store's and Google Play's requirements at 1242&nbsp;x&nbsp;2208 pixels for phones and 2048&nbsp;x&nbsp;2732 pixels for tablets.</h1>
+      <h2 class="tip"><b>TIP:</b> In the Xcode simulator press ⌘+S to generate in-app screenshots.</h2><a href="mailto:hello@appstorescreenshot.com?subject=Hello" class="contact">Have any questions?<br>hello@appstorescreenshot.com</a>
+    </div>
+    <div id="previewwrapper">
+      <div id="previewheader">
+        <div id="backtoediting">Back to Editing</div>
+        <div id="download">Download</div>
+      </div>
+      <div id="showcase"></div>
+      <div class="spinner"></div>
+    </div>
+
+    <div class="modal" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">New App Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="newAppName">App Name</label>
+                            <input type="text" class="form-control" id="newAppName" aria-describedby="emailHelp" placeholder="Enter App Name">
+                        </div>
+                    </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="addnew()" >Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <script src="/main-min.js"></script>
+    <!-- <link href="./App Store Screenshot Generator _ Create Beautiful Screenshots for iOS and Android in Minutes_files/css(1)" rel="stylesheet"> -->
+    <script src="/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+  
+  
+      $(document).ready(function(e){
+        
+      
+        $('#saveApp').click(function(){
+          var appData=$('#canvas').html();
+          $.ajax({
+            url:"/app/save",
+            data:{
+              appName:"<%=appName%>",
+              appHtmlString:appData
+            },
+            method:"POST",
+            success:function(data){
+              alert("saved");
+            }
+
+          });
+        })
+
+        $("#rotateMe").click(function(){
+          var currentTransformVal = $(".screenshotparent.selc").find(".deviceparent").css("transform").slice(7,$(".deviceparent").css("transform").length-1).split(",");
+          var currentTransformVal2 = $(".screenshotparent.selc").find(".deviceparent").find("div.aaa").css("transform").slice(7,$(".deviceparent").css("transform").length-1).split(",");
+          // $(".deviceparent").css("transform","rotate(40deg)")
+          //alert(currentTransformVal2[2]);
+          if(currentTransformVal2[2]== -0.2){
+            currentTransformVal[2] = "0";
+            currentTransformVal[1] = "0";
+          }
+          else{
+            currentTransformVal[2] = "-.2";
+            currentTransformVal[1] = ".2";
+          }
+          
+         /// $(".deviceparent").css("transform", "matrix(" + currentTransformVal+")");
+           $(".screenshotparent.selc").find(".deviceparent").find("div.aaa").css("transform", "matrix(" + currentTransformVal+")");
+        })
+      })
+      function selc(e){
+        
+        
+        $(".screenshotparent").removeClass('selc');
+        $(e).addClass("selc");
+        moveDraggersToMiddle(!1);
+      }
+  
+      function previewFile(){
+         var preview = $(".screenshotparent").not('.add'); //selects the query named img
+         var file    = document.querySelector('#bgImage').files[0]; //sames as here
+         var reader  = new FileReader();
+  
+         reader.onloadend = function () {
+             preview.css("background-image","url("+ reader.result +")");
+         }
+  
+         if (file) {
+             reader.readAsDataURL(file); //reads the data as a URL
+         } else {
+          preview.css("background-image","");
+         }
+    }
+    function addnew(){
+              var appName=$("#newAppName").val();
+              if(appName.length>0){
+                window.location.href="http://localhost:3000/index?appName="+appName;
+              }else{
+                  alert("App Name is required")
+              }
+          }
+    </script>
+  </body></html>

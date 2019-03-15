@@ -1,0 +1,37 @@
+<!--  <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">User Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <!-- [dataToInit]="data" - ->
+                       <app-load-form (getData)="save($event)"   [isBorder]="false" [elements]="fromJson2"></app-load-form>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+ -->
+ <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title text-center">Sign Up </h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <app-load-form (getData)="save($event)"   [isBorder]="false" [elements]="formJson"></app-load-form>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,21 @@
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title text-center">Login</h4>
+                  <p class="card-category">Enter you email and password to login to your account</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <app-load-form (getData)="save($event)"   [isBorder]="false" [elements]="login"></app-load-form>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>

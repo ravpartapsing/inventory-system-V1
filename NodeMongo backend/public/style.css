@@ -1,0 +1,1239 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+html,
+body {
+    min-height: 100vh
+}
+
+body {
+    background-color: #191A1E;
+	overflow-x:hidden;
+	padding-left:75px;
+}
+
+
+
+/* width */
+::-webkit-scrollbar { width: 3px; height:5px; }
+/* Track */
+::-webkit-scrollbar-track { background: #666; }
+/* Handle */
+::-webkit-scrollbar-thumb { background: #ed6969; }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover { background: #ed6969;  }
+
+.lyout3{
+    position: absolute;
+    top: -141px;
+}
+
+.lyout2{
+    top: -70px;
+    /* transform: scale(0.95); */
+    position: absolute;
+}
+.hidden {
+    opacity: 0;
+    flex-basis: 0px !important;
+    pointer-events: none;
+	display:none;
+}
+
+.selected {
+    color: #f08080 !important
+}
+
+#mainwrapper {
+    position: relative;
+    height: 100%;
+    /* background-color: #fafafa; */
+    min-width: 768px;
+    display: flex;
+    flex-direction: column
+}
+
+#mainwrapper>div {
+    white-space: nowrap;
+    /* overflow-x: scroll */
+}
+.selc {
+    border: 2px solid #756b6b;
+}
+#mainwrapper #mainwrapper span,
+#mainwrapper #header span,
+#mainwrapper #mainmenu span,
+#mainwrapper #background1 span {
+    line-height: 55px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    position: relative;
+    color: #efefef;
+    margin: 0px 50px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#mainwrapper #mainwrapper span#aboutbutton,
+#mainwrapper #header span#aboutbutton,
+#mainwrapper #mainmenu span#aboutbutton,
+#mainwrapper #background1 span#aboutbutton {
+    left: 10px;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 400
+}
+
+#mainwrapper #mainwrapper span#logo,
+#mainwrapper #header span#logo,
+#mainwrapper #mainmenu span#logo,
+#mainwrapper #background1 span#logo {
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: default
+}
+
+#mainwrapper #mainwrapper span#logo:hover,
+#mainwrapper #header span#logo:hover,
+#mainwrapper #mainmenu span#logo:hover,
+#mainwrapper #background1 span#logo:hover {
+    color: #404040 !important
+}
+
+#mainwrapper #mainwrapper span#previewbutton,
+#mainwrapper #header span#previewbutton,
+#mainwrapper #mainmenu span#previewbutton,
+#mainwrapper #background1 span#previewbutton {
+    right: 0;
+    min-width: 100px;
+    width: 15%;
+    background-color: #353640;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 300;
+    transition: all 100ms linear
+}
+
+#mainwrapper #mainwrapper span#previewbutton:hover,
+#mainwrapper #header span#previewbutton:hover,
+#mainwrapper #mainmenu span#previewbutton:hover,
+#mainwrapper #background1 span#previewbutton:hover {
+    background-color: #ed6969
+}
+
+#mainwrapper #mainwrapper span:hover,
+#mainwrapper #header span:hover,
+#mainwrapper #mainmenu span:hover,
+#mainwrapper #background1 span:hover {
+    color: #f08080
+}
+
+#mainwrapper .colorbox {
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 4px;
+    vertical-align: top;
+    width: 80px;
+    background-color: red;
+    cursor: pointer
+}
+
+#mainwrapper .colorbox.selected::before {
+    content: '';
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    bottom: calc(100% + 5px);
+    height: 1px;
+    background-color: #f08080
+}
+
+#mainwrapper .colorbox input {
+    width: 0px;
+    height: 0px;
+    opacity: 0
+}
+
+#mainwrapper label.colorbox:after {
+    content: 'custom';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 300;
+    color: #888
+}
+
+#mainwrapper #header {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    flex: 0.0001 0 55px;
+    /* background-color: white; */
+    box-shadow: 0px 2px 0px #353640
+}
+
+#mainwrapper #header>span {
+    position: absolute;
+    margin: 0px
+}
+
+#mainwrapper #mainmenu {
+    z-index: 1;
+    position: relative;
+    flex: 0 0 55px;
+    text-align: center;
+    /* background-color: white; */
+    box-shadow: 0px 1px 0px #353640
+}
+
+#mainwrapper #background1,
+#mainwrapper #backgroundcolor1,
+#mainwrapper #backgroundcolor2,
+#mainwrapper #backgroundcolor3 {
+    transition: all 300ms ease-out;
+    z-index: 0;
+    position: relative;
+    flex: 0 0 55px;
+    text-align: center;
+    background-color: #353640
+}
+
+#mainwrapper #devicelist {
+    transition: all 300ms ease-out;
+    z-index: 0;
+    position: relative;
+    flex: 0 0 132px;
+    text-align: center;
+    background-color: #353640;
+	overflow-x:auto;
+}
+
+#mainwrapper #fontparent {
+    transition: all 300ms ease-out;
+    z-index: 0;
+    position: relative;
+    flex: 0 0 71.5px;
+    text-align: center;
+    background-color: #353640;
+    overflow: hidden;
+    text-align: left;
+	color:#fff
+}
+
+#mainwrapper #fontparent #fontsize {
+    margin-left: 10px;
+    float: left;
+    display: inline-block;
+    height: 71.5px;
+    width: 200px;
+    text-align: center;
+    align-items: center
+}
+
+#mainwrapper #fontparent #fontsize .text {
+    display: inline-block;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #fff;
+    margin: 0px 10px;
+    line-height: 71.5px;
+    height: 71.5px;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#mainwrapper #fontparent #fontsize .text.plusminus {
+    font-size: 40px;
+    font-weight: 300;
+    color: #fff;
+    cursor: pointer
+}
+
+#mainwrapper #fontparent #fontsize .text.plusminus.plus {
+    margin-top: -4px
+}
+
+#mainwrapper #fontparent #customfont {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 300px
+}
+
+#mainwrapper #fontparent #customfont input {
+    width: 100%;
+    margin-top: 20px;
+    height: 31.5px;
+    padding: 0px 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center
+}
+
+#mainwrapper #fontparent #customfont input:focus {
+    outline: none !important;
+    border-color: #f08080
+}
+
+#mainwrapper #fontparent #customfont input:focus+#fontinfo {
+    opacity: 1
+}
+
+#mainwrapper #fontparent #customfont #fontinfo {
+    width: 100%;
+    height: 20px;
+    font-family: 'Open Sans';
+    font-size: 10px;
+    text-align: center;
+    color: #404040;
+    line-height: 18px;
+    transition: opacity 400ms linear;
+    opacity: 0
+}
+
+#mainwrapper #fontparent #predefinedfonts {
+    display: inline-block;
+    height: 71.5px;
+    margin-left: 20px;
+    margin-right: 10px;
+    width: calc(100% - 200px - 300px - 40px);
+    overflow-x: scroll;
+    vertical-align: middle
+}
+
+#mainwrapper #fontparent #predefinedfonts .font {
+    display: inline-block;
+    margin: 0px 30px;
+    margin-top: 24px;
+    cursor: pointer
+}
+
+#mainwrapper #fontparent #predefinedfonts .font.selected {
+    color: #f08080
+}
+
+#mainwrapper .devicebox {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 79.5px;
+    margin: 13.75px 10px;
+    cursor: pointer;
+    background-size: 90%;
+    background-position: center 10px;
+    background-repeat: no-repeat
+}
+
+#mainwrapper .devicebox:after {
+    content: 'custom';
+    position: absolute;
+    top: 105%;
+    left: 0;
+    right: 0;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 300;
+    color: #888
+}
+
+#mainwrapper #layoutparent {
+    transition: all 300ms ease-out;
+    z-index: 0;
+    position: relative;
+    flex: 0 0 110px;
+    text-align: center;
+    background-color: #353640;
+    overflow: hidden;
+    text-align: left;
+    border-bottom: 1px solid #eee
+}
+
+#mainwrapper #layoutparent #rotateparent {
+    position: relative;
+    display: inline-block;
+    width: 240px;
+    height: 110px
+}
+
+#mainwrapper #layoutparent #rotateparent #rotater {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 64px;
+    outline: 1px solid #888;
+    transition: all 300ms ease-in-out
+}
+
+#mainwrapper #layoutparent #rotateparent #rotater:hover {
+    transform: translate(-50%, -50%) rotate(90deg)
+}
+
+#mainwrapper #layoutparent #rotateparent #rotatetext {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    color: #404040
+}
+
+#mainwrapper #layoutparent #layoutoptionsparent {
+    position: absolute;
+    top: 0;
+    width: calc(100% - 240px);
+    height: 110px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+
+#mainwrapper #layoutparent #layoutoptionsparent .layout {
+    flex: 1 1 1px;
+    width: 10%;
+    height: 80%;
+    margin: 0px 1%;
+    outline: 1px solid #eee;
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+#mainwrapper #layoutparent #layoutoptionsparent .layout#l1 {
+    background-image: url(../images/layout-top.png)
+}
+
+#mainwrapper #layoutparent #layoutoptionsparent .layout#l2 {
+    background-image: url(../images/layout-middle.png)
+}
+
+#mainwrapper #layoutparent #layoutoptionsparent .layout#l3 {
+    background-image: url(../images/layout-bottom.png)
+}
+
+#mainwrapper #layoutparent #layoutoptionsparent .layout.selectedlayout {
+    outline: 1px solid #f08080
+}
+
+#mainwrapper #layoutsliderparent {
+    z-index: 10;
+    transition: all 300ms ease-out;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #353640;
+    border-right: 1px solid #eee
+}
+
+#mainwrapper #layoutsliderparent .slider {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    bottom: 20px;
+    background-color: #eee;
+    width: 1px
+}
+
+#mainwrapper #layoutsliderparent .slider.s2 {
+    left: 125px
+}
+
+#mainwrapper #layoutsliderparent .slider.s3 {
+    left: 200px
+}
+
+#mainwrapper #layoutsliderparent .slider .dragger {
+    content: '';
+    position: absolute;
+	color:#353640;
+    width: 30px;
+    height: 80px;
+    left: -15px;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    line-height: 80px;
+    background-color: white;
+    background-image: url(../images/up-down.png);
+    background-size: auto 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: ns-resize;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#mainwrapper #canvas {
+    /* background-color: #f5f5f5; */
+	padding:25px 0 0;
+	color:#efefef;
+    position: relative;
+    width: 100%;
+    flex: 1 0 550px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#mainwrapper #canvas #aligner {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    bottom: 0;
+    height: 100%;
+    white-space: nowrap;
+    text-align: center;
+    overflow-x: scroll;
+    vertical-align: middle
+}
+
+#mainwrapper #canvas #aligner::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    background-color: red;
+    vertical-align: middle
+}
+
+#mainwrapper #canvas #aligner .screenshotparent {
+    position: relative;
+    display: inline-block;
+    width: 281.25px;
+    height: 500px;
+    margin: 0px 20px;
+    outline: 1px dashed #ccc;
+    outline-offset: 2px;
+    background:linear-gradient(rgb(155, 89, 182), rgb(52, 152, 219));
+    vertical-align: middle;
+    overflow: hidden
+}
+
+#mainwrapper #canvas #aligner .screenshotparent:hover .deletebutton {
+    transform: translate(-50%, -100%);
+    opacity: 1
+}
+
+#mainwrapper #canvas #aligner .screenshotparent:hover:first-child:nth-last-child(2) .deletebutton {
+    pointer-events: none;
+    opacity: 0
+}
+
+#mainwrapper #canvas #aligner .screenshotparent.dragover {
+    outline: 2px dashed #f08080 !important;
+    outline-offset: 5px !important
+}
+
+#mainwrapper #canvas #aligner .screenshotparent.add {
+    background-color: transparent;
+    background: none;
+    outline-color: #fff;
+    cursor: pointer
+}
+
+#mainwrapper #canvas #aligner .screenshotparent.add::after {
+    content: '+';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Open Sans';
+    font-size: 60px;
+    font-weight: 200;
+    color: #fff
+}
+
+#mainwrapper #canvas #aligner .screenshotparent p.textparent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5px;
+    white-space: normal;
+    text-align: center;
+    z-index: 10;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px
+}
+
+#mainwrapper #canvas #aligner .screenshotparent p.textparent:focus {
+    outline: 1px dashed white
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent {
+    outline-offset: -3px;
+    position: absolute;
+    top: 59px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    transform: scale(0.95)
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper {
+    z-index: 5;
+    background-color: white;
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 62px;
+    height: 391px
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper label.filelabel {
+    z-index: 15;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper label.filelabel input {
+    opacity: 0
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper .instruction {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #404040;
+    vertical-align: middle
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper .instruction .ratioclass {
+    display: inline-block;
+    color: #f08080;
+    font-size: 14px;
+    font-weight: 600
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper .screenshotholder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0px solid transparent
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent .screenshotwrapper .screenshotholder:not([src]) {
+    opacity: 0
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent img.deviceholder {
+    pointer-events: none;
+    z-index: 6;
+    position: relative;
+    width: 90%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat
+}
+
+#mainwrapper #canvas #aligner .screenshotparent .deviceparent img.deviceholder:not([src]) {
+    display: none
+}
+
+#mainwrapper #canvas #aligner .deletebutton {
+    width: 40;
+    height: 40;
+    background-image: url(../images/rubbish-bin.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: #f5f5f5; */
+    border: 1px solid red;
+    border-radius: 50%;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all 300ms ease-out;
+    cursor: pointer
+}
+
+#mainwrapper #canvas #aligner .deletebutton:hover {
+    background-color: #eee
+}
+
+#previewwrapper {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    /* background-color: #f5f5f5; */
+    pointer-events: none;
+    height: 100%;
+    min-height: 700px;
+    display: none
+}
+
+#previewwrapper #previewheader {
+    height: 55px;
+    /* background-color: white; */
+    box-shadow: 0px 2px 0px #353640
+}
+
+#previewwrapper #previewheader>div {
+    display: inline-block;
+    line-height: 55px;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 100ms linear
+}
+
+#previewwrapper #previewheader #backtoediting {
+    color: #efefef;
+    margin-left: 20px
+}
+
+#previewwrapper #previewheader #download {
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    min-width: 100px;
+    width: 15%;
+    background-color: #353640;
+    color: white;
+    font-weight: 300;
+    transition: all 100ms linear
+}
+
+#previewwrapper #previewheader #download:hover {
+    background-color: #ed6969
+}
+
+#previewwrapper #showcase {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: calc(100% - 55px);
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    overflow-x: scroll
+}
+
+#previewwrapper #showcase::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 0px;
+    vertical-align: middle
+}
+
+#previewwrapper #showcase img {
+    display: inline-block;
+    min-height: 500px;
+    height: 60%;
+    object-fit: contain;
+    vertical-align: middle;
+    margin: 0px 15px
+}
+
+#previewwrapper .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#aboutbackground {
+    z-index: 20;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+    min-height: 700
+}
+
+#aboutbackground.hidden {
+    opacity: 0
+}
+
+#aboutwrapper {
+    z-index: 20;
+    background-color: #fbfbfb;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    min-height: 700;
+    transition: all 200ms ease-out;
+    text-align: center;
+    font-family: 'Open Sans';
+    color: #404040;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    outline: 1px solid #f08080
+}
+
+#aboutwrapper.hidden {
+    left: -351px
+}
+
+#aboutwrapper h3 {
+    margin-top: 100px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: left
+}
+
+#aboutwrapper h1.maincontent {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: justify;
+    padding: 0px 20px;
+    margin-top: 10px;
+    margin-bottom: 40px
+}
+
+#aboutwrapper h2.tip {
+    padding: 0px 20px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #404040;
+    opacity: 0.9
+}
+
+#aboutwrapper h2.tip b {
+    font-weight: 600;
+    color: #f08080
+}
+
+#aboutwrapper a.contact {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    color: #404040;
+    text-decoration: none
+}
+
+#aboutwrapper a.contact:hover {
+    color: #f08080
+}
+
+.c1 {
+    background-color: lightcoral !important
+}
+
+.c2 {
+    background-color: #e74c3c !important;
+    background-color: #ef5285 !important
+}
+
+.c3 {
+    background-color: #EFDC05 !important
+}
+
+.c4 {
+    background-color: #9b59b6 !important
+}
+
+.c5 {
+    background-color: #3498db !important
+}
+
+.c6 {
+    background-color: #2ecc71 !important
+}
+
+.c7 {
+    background-color: white !important;
+    border: 1px solid #eee;
+    box-sizing: border-box
+}
+
+.c8 {
+    background-color: #fbfbfb !important;
+    border: 1px solid #eee;
+    box-sizing: border-box
+}
+
+.c9 {
+    background-color: #DADFE1 !important
+}
+
+.c10 {
+    background-color: #606166 !important
+}
+
+.c11 {
+    background-color: #353535 !important
+}
+
+.c12 {
+    background-color: #000 !important
+}
+
+.devicebox.d1 {
+    background-image: url(../images/devices/iphone-black.png)
+}
+
+.devicebox.d1:after {
+    content: 'iPhone - Black' !important
+}
+
+.devicebox.d2 {
+    background-image: url(../images/devices/iphone-white.png)
+}
+
+.devicebox.d2:after {
+    content: 'iPhone - White' !important
+}
+
+.devicebox.d3 {
+    background-image: url(../images/devices/iphone-black-mini.png)
+}
+
+.devicebox.d3:after {
+    content: 'Minimalistic iPhone - Black' !important
+}
+
+.devicebox.d4 {
+    background-image: url(../images/devices/iphone-white-mini.png)
+}
+
+.devicebox.d4:after {
+    content: 'Minimalistic iPhone - White' !important
+}
+
+.devicebox.d5 {
+    background-image: url(../images/devices/android-black-mini.png)
+}
+
+.devicebox.d5:after {
+    content: 'Minimalistic Android - Black' !important
+}
+
+.devicebox.d6 {
+    background-image: url(../images/devices/android-white-mini.png)
+}
+
+.devicebox.d6:after {
+    content: 'Minimalistic Android - White' !important
+}
+
+.devicebox.d7 {
+    background-image: url(../images/devices/ipad-black.png)
+}
+
+.devicebox.d7:after {
+    content: 'iPad - Black' !important
+}
+
+.devicebox.d8 {
+    background-image: url(../images/devices/ipad-white.png)
+}
+
+.devicebox.d8:after {
+    content: 'iPad - White' !important
+}
+
+.devicebox.d9 {
+    background-image: url(../images/devices/ipad-black-mini.png)
+}
+
+.devicebox.d9:after {
+    content: 'Minimalistic iPad - Black' !important
+}
+
+.devicebox.d13 {
+    background-image: url(../images/devices/iphone6_white.png)
+}
+
+.devicebox.d13:after {
+    content: 'iPhone6-White' !important
+}
+
+.devicebox.d14 {
+    background-image: url(../images/devices/iphone7_glass.png)
+}
+
+.devicebox.d14:after {
+    content: 'iPhone7-Glass' !important
+}
+
+.devicebox.d15 {
+    background-image: url(../images/devices/iphone7_white.png)
+}
+
+.devicebox.d15:after {
+    content: 'iPhone7-White' !important
+}
+
+.devicebox.d16 {
+    background-image: url(../images/devices/iphonex_black.png)
+}
+
+.devicebox.d16:after {
+    content: 'iPhoneX-Black' !important
+}
+
+.devicebox.d17 {
+    background-image: url(../images/devices/iphonex_mockup.png)
+}
+
+.devicebox.d17:after {
+    content: 'iPhoneX-Mockup' !important
+}
+
+.devicebox.d18 {
+    background-image: url(../images/devices/pixel_black.png)
+}
+
+.devicebox.d18:after {
+    content: 'Pixel-Black' !important
+}
+
+.devicebox.d19 {
+    background-image: url(../images/devices/pixel_white.png)
+}
+
+.devicebox.d19:after {
+    content: 'Pixel-White' !important
+}
+
+.devicebox.d20 {
+    background-image: url(../images/devices/s8_black.png)
+}
+
+.devicebox.d20:after {
+    content: 'Samsung-Black S8' !important
+}
+
+.devicebox.d10 {
+    background-image: url(../images/devices/ipad-white-mini.png)
+}
+
+.devicebox.d10:after {
+    content: 'Minimalistic iPad - White' !important
+}
+
+    
+.devicebox.d11 {
+    outline: 1px dashed #eee;
+    border: 0px solid transparent;
+    background-image: none
+}
+
+.devicebox.d11:after {
+    content: 'Only Screenshot - Phone' !important
+}
+
+.devicebox.d12 {
+    outline: 1px dashed #eee;
+    border: 0px solid transparent;
+    background-image: none
+}
+
+.devicebox.d12:after {
+    content: 'Only Screenshot - Tablet' !important
+}
+
+.font.f0::before {
+    content: 'Open Sans';
+    font-family: 'Open Sans'
+}
+
+.font.f1::before {
+    content: 'Amatic SC';
+    font-family: 'Amatic SC'
+}
+
+.font.f2::before {
+    content: 'Nunito';
+    font-family: 'Nunito'
+}
+
+.font.f3::before {
+    content: 'Cabin';
+    font-family: 'Cabin'
+}
+
+.font.f4::before {
+    content: 'Catamaran';
+    font-family: 'Catamaran'
+}
+
+.font.f5::before {
+    content: 'Droid Sans';
+    font-family: 'Droid Sans'
+}
+
+.font.f6::before {
+    content: 'Arvo';
+    font-family: 'Arvo'
+}
+
+.font.f7::before {
+    content: 'Indie Flower';
+    font-family: 'Indie Flower'
+}
+
+.font.f8::before {
+    content: 'Josefin Sans';
+    font-family: 'Josefin Sans'
+}
+
+.font.f9::before {
+    content: 'Lato';
+    font-family: 'Lato'
+}
+
+.font.f10::before {
+    content: 'Lobster Two';
+    font-family: 'Lobster Two'
+}
+
+.font.f11::before {
+    content: 'Poiret One';
+    font-family: 'Poiret One'
+}
+
+.font.f12::before {
+    content: 'Poppins';
+    font-family: 'Poppins'
+}
+
+.font.f14::before {
+    content: 'Quicksand';
+    font-family: 'Quicksand'
+}
+
+.font.f15::before {
+    content: 'Roboto';
+    font-family: 'Roboto'
+}
+
+.font.f16::before {
+    content: 'Ubuntu';
+    font-family: 'Ubuntu'
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f6f6f6;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%
+}
+
+.spinner:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top-color: #f08080;
+    border-top-right-radius: 50%;
+    margin-top: -1px;
+    margin-left: -1px;
+    animation: spinner 1250ms cubic-bezier(0.6, 0.3, 0.4, 0.65) infinite
+}
+
+.devicebox.d16 .screenshotwrapper, .devicebox.d17 .screenshotwrapper{
+	position: absolute !important;
+	left: 25px !important;
+    right: 30px !important;
+    top: 15px !important;
+    height: 439px !important;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+        border-top-color: #f08080
+    }
+
+    50% {
+        border-top-color: #ff2380
+    }
+
+    100% {
+        transform: rotate(360deg);
+        border-top-color: #f08080
+    }
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    color: #fff;
+    width: 75px;
+    height: 100%;
+    background: #353640;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar  i , .addBtn i{
+    padding: 16px 0;
+    width: 100%;
+    text-align: center;
+    background: #666;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+.sidebar i:hover{background:#ed6969}
+.user {width: 60px; min-height: 60px; border-radius: 50%; overflow: hidden; margin-top:5px;}
+.user i{padding:23px 0}
+.addBtn{width: 60px; min-height: 60px;}

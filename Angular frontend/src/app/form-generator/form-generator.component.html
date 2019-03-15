@@ -1,0 +1,403 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row mt-3 ">
+        <div class="col-12 " style="height:10px"></div>
+        <div class="col-md-1 col-sm-12 " >
+                <div class="sticky-top">
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100"  (click)="addInput('empty')" >Empty</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100"  (click)="addInput('info')" >Info</button></div>
+                <div class="col-12 mt-1" >  <button class="btn btn-default btn-sm w-100"  (click)="addInput('text')" >Input</button></div>
+                <div class="col-12 mt-1" > <button class="btn btn-default btn-sm w-100"  (click)="addInput('textarea')"  >TextArea</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100"  (click)="addInput('number')" >Number</button></div>
+                <div class="col-12 mt-1" >   <button class="btn btn-default btn-sm w-100"  (click)="addInput('file')" >File</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100"  (click)="addInput('formgroup')" ><small>FormGroup</small></button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100"  (click)="addInput('radio')" >Radio</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100" (click)="addInput('checkbox')" ><small>Checkbox</small></button></div>
+                <div class="col-12 mt-1" >      <button class="btn btn-default btn-sm w-100" (click)="addInput('select')" >Select</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100" (click)="addInput('matrix')" >Matrix</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100" (click)="addInput('address')" >Address</button></div>
+                <div class="col-12 mt-1" >     <button class="btn btn-default btn-sm w-100" (click)="addInput('separator')" >Separator</button></div>
+        </div>
+        </div>
+        <div class="col-md-3 col-sm-12" >
+                        <div class="form-group" style="min-height:700px">
+                                        <label for="exampleInputEmail1">JSON for Form</label>
+                                        <textarea class="form-control" style="font-size:12px;" rows="50" [(ngModel)]="tempElements"  ></textarea>
+                                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div>
+                                <button (click)="viewForm()">Process JSON</button>
+                        </div>
+        
+        </div>
+        <div class="col-md-8 col-sm-12" >
+                        <div class="container" *ngIf="showForm">
+                                        <!-- <h3>Sample Form</h3>
+                                        <br>
+                                        <hr>
+                                        <br> -->
+                                    
+                                        <!-- Form from Json Code begin -->
+                                        <form  [formGroup]="myform" class="list-group-item p-5"  (ngSubmit)="onSubmit()">
+                                            <div class="row  ">
+                                            
+                                            <div class="col-md-12 " style="text-align:center">
+                                                    <h5>FORM-2</h5>
+                                                    <small>APPLICANTION FOR REGISTRATION/GRANT OF FACTORY LICENCE UNDER THE FACTORIES ACT,1948<br>
+                                                            A NOTICE OF OCCUPATION SPECIFIED IN SECTIONS 6 AND 7</small>
+                                                    <hr>
+                                            </div>
+                                            <div *ngFor="let ele of elements"  class="{{(ele.col)?'col-md-'+ele.col:'col-md-12'}}">
+                                    
+                                                <div *ngIf="(ele.type=='info') && ( ele.related==undefined || showInputs[ele.related]==undefined || showInputs[ele.related]==1 )"  >
+                                                   
+                                                        <h3 *ngIf="ele.header">{{ele.header}}</h3><p></p>
+                                                        <h4 *ngIf="ele.subHeader">{{ele.subHeader}}</h4><p></p>
+                                                        <hr  *ngIf="ele.subHeader ||ele.header ">
+                                                        <p *ngIf="ele.desc">{{ele.desc}}</p>
+                                                    
+                                                </div>
+                                                <div *ngIf="ele.type=='empty'"><p >&nbsp;</p></div>
+        
+        
+                                                <div *ngIf="ele.type=='hr'"><hr><p></p></div>
+                                    
+                                                <div *ngIf="(ele.type=='text' || ele.type=='number'|| ele.type=='tel'||ele.type=='password') && (showInputs[ele.name]==undefined || showInputs[ele.name]==1 )" >
+                                                   
+                                                        <div class="form-group">
+                                                                <label for="exampleInputEmail1">{{ele.label}}</label>
+                                                                <input type="{{ele.type}}" [formControlName]="ele.name" class="form-control" value="" [readonly]="(ele.readonly!=undefined)?ele.readonly:false" >
+                                                                <errors [control]="myform.controls[ele.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                        </div>
+                                                   
+                                                </div>
+                                                <div *ngIf="(ele.type=='date') && (showInputs[ele.name]==undefined || showInputs[ele.name]==1 )"  >
+                                                        
+                                                             <div class="form-group">
+                                                                     <label for="exampleInputEmail1">{{ele.label}}</label>
+                                                                     <input type="{{ele.type}}" [formControlName]="ele.name" class="form-control datepicker" value="">
+                                                                     <errors [control]="myform.controls[ele.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                             </div>
+                                                        
+                                                </div>
+                                                <div *ngIf="(ele.type=='file') && (showInputs[ele.name]==undefined || showInputs[ele.name]==1 ) "  >
+                                                            
+                                                                 <div class="form-group">
+                                                                         <label for="exampleInputEmail1">{{ele.label}}</label>
+                                                                         <input type="file" (change)="fileEvent($event,myform.get(ele.name),ele.filetype)" class="form-control" value="">
+                                                                         <input type="hidden"  [formControlName]="ele.name">
+                                                                         <errors [control]="myform.controls[ele.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                                 </div>
+                                                            
+                                                 </div>
+                                    
+                                                <div *ngIf="ele.type=='textarea' " >
+                                                   
+                                                            <div class="form-group">
+                                                                    <label for="exampleInputEmail1">{{ele.label}}</label>
+                                                                    <textarea class="form-control"  [formControlName]="ele.name"  rows=5></textarea>
+                                                                    <errors [control]="myform.controls[ele.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                            </div>
+                                                </div>
+                                                <div *ngIf="ele.type=='radio'" >
+                                                        <label >{{ele.label}}</label>
+                                                        <div class="form-check {{(ele.inline && ele.inline==true)?'form-check-inline':''}}" *ngFor="let ch of ele.choices;">
+                                                            <input type="radio" value="{{ch}}" [formControlName]="ele.name" class="form-check-input"  id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">{{ch}}</label>
+                                                        </div>
+                                                </div>
+                                                <div *ngIf="(ele.type=='select') &&  (showInputs[ele.name]==undefined || showInputs[ele.name]==1 )" >
+                                                    <div class="form-group ">
+                                                        <label >{{ele.label}}</label>
+                                                        <select class="form-control" name="{{ele.name}}" [formControlName]="ele.name" >
+                                                            <option *ngFor="let ch of ele.choices; let i = index;" value="{{ele.value[i]}}">{{ch}}</option>
+                                                        </select> 
+                                                    </div>
+                                                      
+                                                </div>
+                                                <div *ngIf="ele.type=='checkbox'" >
+                                                            
+                                                        <label >{{ele.name}}</label>
+                                                        <div class="form-check {{(ele.inline && ele.inline==true)?'form-check-inline':''}}" *ngFor="let ch of ele.choices;">
+                                                                <input type="checkbox" class="form-check-input" [formControlName]="ele.name" id="exampleCheck1">
+                                                                <label class="form-check-label" for="exampleCheck1">{{ch}}</label>
+                                                        </div>
+                                                   
+                                                    <!-- <label *ngFor="let ch of ele.choices;"><input type="checkbox" name="{{ele.name}}" /> {{ch}} </label> -->
+                                                </div>
+                                    
+                                    
+                                                <div *ngIf="ele.type=='address'" formGroupName="{{ele.name}}">
+                                    
+                                                    <div class="row">
+                                                            
+                                                            <div class="col-md-12 mt-3">
+                                                                <h5>{{ele.label}}</h5>
+                                                                <hr>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Address Line</label>
+                                                                            <input type="text" formControlName="add_line" class="form-control" value="">
+                                                                            <errors [control]="myform.controls[ele.name].controls.add_line" [formsubmitted]="formsubmitted"></errors>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Distt</label>
+                                                                            
+                                                                            <select class="form-control" formControlName="dist" >
+                                                                                    <option *ngFor="let ch of distt; let i = index;" value="{{ch}}">{{ch}}</option>
+                                                                            </select> 
+                                                                            <errors [control]="myform.controls[ele.name].controls.dist" [formsubmitted]="formsubmitted"></errors>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Teh</label>
+                                                                            <select  class="form-control" formControlName="teh" >
+                                                                                    <option *ngFor="let ch of Teh; let i = index;" value="{{ch}}">{{ch}}</option>
+                                                                            </select> 
+                                                                            <errors [control]="myform.controls[ele.name].controls.teh" [formsubmitted]="formsubmitted"></errors>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                    
+                                    
+                                                <div class="" *ngIf="ele.type=='matrix'">
+                                                    <label><b>{{ele.desc}}</b></label>
+                                                    <div class="" >
+                                                           
+                                                        <div class="row mt-4 mb-4">
+                                                                <div  class="form-group" *ngFor="let item of ele.matrixCol"  class="{{(item.col)?'col-'+item.col:'col'}}">
+                                                                    <div >
+                                                                       <label><b>{{item.label}}</b></label>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                        <div   formArrayName="{{ele.name}}"  >
+                                                            <div class="row" *ngFor="let item of myform.get(ele.name).controls; let i = index;">
+                                                                <div  [formGroupName]="i" *ngFor="let item of ele.matrixCol"  class="{{(item.col)?'col-'+item.col:'col'}}">
+                                                                    <div class="form-group"  *ngIf="(item.type=='text')" >
+                                                                        <input class="form-control" type="{{item.type}}" formControlName="{{item.name}}" (change)="updateval(ele.name)">
+                                                                        <errors [control]="myform.get(ele.name).controls[i].controls[item.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                    </div>
+                                                                    <div class="form-group"  *ngIf="(item.type=='select')" >
+                                                                        <select class="form-control" [formControlName]="item.name" >
+                                                                                <option *ngFor="let ch of item.choices; let k = index;" value="{{item.value[k]}}">{{ch}}</option>
+                                                                        </select> 
+                                                                        <errors [control]="myform.get(ele.name).controls[i].controls[item.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                                <div class="col-1" *ngIf="myform.get(ele.name).controls.length>1">
+                                                                            <button type="button" class="btn btn-sm btn-danger" (click)="removeMatrixRec(ele.name,i)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="float-right">
+                                                                    <button type="button" class="btn btn-sm btn-default" (click)="addMatrixRec(ele.name)">Add More</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                                    <div *ngIf="ele.type=='checklist'">
+                                                            <div class="list-group" id="list1">
+                                                                    <a  class="list-group-item"  *ngFor="let item of ele.list" >{{item.detail}}<input type="checkbox" class="float-right" ></a>
+                                                            </div>
+                                                    </div>
+                                    
+                                    
+                                                    <div *ngIf="ele.type=='fbGroup'" class="row" formGroupName="{{ele.name}}">
+                                                            <label>{{ele.label}}</label><p></p>
+                                                                    <div class="col-12"></div>
+                                                                    <div *ngFor="let fgField of ele.fgFields"  class="{{(fgField.col)?'col-md-'+fgField.col:'col-md-12'}}">
+                                                            
+                                                                            <div *ngIf="fgField.type=='info'"  >
+                                                                            
+                                                                                    <h3 *ngIf="fgField.header">{{ele.header}}</h3><p></p>
+                                                                                    <h4 *ngIf="fgField.subHeader">{{ele.subHeader}}</h4><p></p>
+                                                                                    <hr  *ngIf="fgField.subHeader ||ele.header ">
+                                                                                    <p *ngIf="fgField.desc">{{ele.desc}}</p>
+                                                                            
+                                                                            </div>
+                                                                            <div *ngIf="fgField.type=='empty'"><p></p><p></p><p></p></div>
+                                                            
+                                                                            <div *ngIf="(fgField.type=='text' || fgField.type=='number'|| fgField.type=='tel' || fgField.type=='password')  && (showInputs[fgField.name]==undefined || showInputs[fgField.name]==1 )"  >
+                                                                            
+                                                                                    <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">{{fgField.label}}</label>
+                                                                                            <input type="{{fgField.type}}" [formControlName]="fgField.name" class="form-control" value="">
+                                                                                            <errors [control]="myform.controls[ele.name].controls[fgField.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                                    </div>
+                                                                            
+                                                                            </div>
+                                                                            <div *ngIf="(fgField.type=='date')"  >
+                                                                                
+                                                                                     <div class="form-group">
+                                                                                             <label for="exampleInputEmail1">{{fgField.label}}</label>
+                                                                                             <input type="{{fgField.type}}" [formControlName]="fgField.name" class="form-control datepicker" value="">
+                                                                                             <errors [control]="myform.controls[ele.name].controls[fgField.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                                                     </div>
+                                                                                
+                                                                        </div>
+                                                                            <div *ngIf="fgField.type=='file'"  >
+                                                                                            
+                                                                                    <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">{{fgField.label}}</label>
+                                                                                            <input type="file" (change)="fileEvent($event,myform.get(ele.name).controls[fgField.name],fgField.filetype)" class="form-control" value="">
+                                                                                            <input type="hidden"  [formControlName]="fgField.name">
+                                                                                            <errors [control]="myform.controls[ele.name].controls[fgField.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                                    </div>
+                                                                                           
+                                                                            </div>
+                                    
+                                                                            <div *ngIf="fgField.type=='textarea' " >
+                                                                            
+                                                                                    <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">{{fgField.label}}</label>
+                                                                                            <textarea class="form-control"  [formControlName]="fgField.name"  rows=5></textarea>
+                                                                                            <errors [control]="myform.controls[ele.name].controls[fgField.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                                    </div>
+                                                                            </div>
+                                                                            <!-- <div *ngIf="fgField.type=='radio'" >
+                                                                                    <label >{{fgField.label}}</label>
+                                                                                    <div class="form-check form-check-inline" *ngFor="let ch of ele.choices;">
+                                                                                    <input type="radio" value="{{ch}}" [formControlName]="fgField.name" class="form-check-input"  id="exampleCheck1">
+                                                                                    <label class="form-check-label" for="exampleCheck1">{{ch}}</label>
+                                                                                    </div>
+                                                                            </div> -->
+                                                                            <div *ngIf="fgField.type=='radio'" >
+                                                                                <label >{{fgField.label}}</label>
+                                                                                <div class="form-check {{(fgField.inline && fgField.inline==true)?'form-check-inline':''}}" *ngFor="let ch of fgField.choices;">
+                                                                                    <input type="radio" value="{{ch}}" [formControlName]="fgField.name" class="form-check-input"  id="exampleCheck1">
+                                                                                    <label class="form-check-label" for="exampleCheck1">{{ch}}</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div *ngIf="fgField.type=='select'" >
+                                                                            <div class="form-group ">
+                                                                                    <label >{{fgField.label}}</label>
+                                                                                    <select class="form-control" name="{{fgField.name}}" [formControlName]="fgField.name" >
+                                                                                    <option *ngFor="let ch of fgField.choices; let i = index;" value="{{fgField.value[i]}}">{{ch}}</option>
+                                                                                    </select> 
+                                                                                    <errors [control]="myform.controls[ele.name].controls[fgField.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                            </div>
+                                                                                    
+                                                                            </div>
+                                                                            <div *ngIf="fgField.type=='checkbox'" >
+                                                                                    
+                                                                                    <label >{{ele.name}}</label>
+                                                                                    <div class="form-check {{(fgField.inline)?'form-check-inline':''}}" *ngFor="let ch of ele.choices;">
+                                                                                            <input type="checkbox" class="form-check-input" name="{{fgField.name}}" id="exampleCheck1">
+                                                                                            <label class="form-check-label" for="exampleCheck1">{{ch}}</label>
+                                                                                    </div>
+                                                                                    <errors [control]="myform.controls[ele.name].controls[fgField.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                            <!-- <label *ngFor="let ch of ele.choices;"><input type="checkbox" name="{{ele.name}}" /> {{ch}} </label> -->
+                                                                            </div>
+                                                            
+                                                            
+                                                                            <div *ngIf="fgField.type=='address'" formGroupName="{{fgField.name}}">
+                                                                            <div class="row">
+                                                                                    
+                                                                                    <div class="col-md-12 mt-3" *ngIf="fgField.showHeader==true">
+                                                                                            <h5>{{fgField.label}}</h5>
+                                                                                            <hr>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                    <label for="exampleInputEmail1">Address Line</label>
+                                                                                                    <input type="text" formControlName="add_line" class="form-control" value="">
+                                                                                                    <errors [control]="myform.controls[ele.name].controls[fgField.name].controls.add_line" [formsubmitted]="formsubmitted"></errors>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                            <div class="form-group">
+                                                                                                    <label for="exampleInputEmail1">Distt</label>
+                                                                                                    
+                                                                                                    <select class="form-control" formControlName="dist" >
+                                                                                                            <option *ngFor="let ch of distt; let i = index;" value="{{ch}}">{{ch}}</option>
+                                                                                                    </select> 
+                                                                                                    <errors [control]="myform.controls[ele.name].controls[fgField.name].controls.dist" [formsubmitted]="formsubmitted"></errors>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                            <div class="form-group">
+                                                                                                    <label for="exampleInputEmail1">Teh</label>
+                                                                                                    <select  class="form-control" formControlName="teh" >
+                                                                                                            <option *ngFor="let ch of Teh; let i = index;" value="{{ch}}">{{ch}}</option>
+                                                                                                    </select> 
+                                                                                                    <errors [control]="myform.controls[ele.name].controls[fgField.name].controls.teh" [formsubmitted]="formsubmitted"></errors>
+                                                                                            </div>
+                                                                                    </div>
+                                                                            </div>
+                                                                            </div>
+                                                            
+                                                            
+                                                                            <div class="" *ngIf="fgField.type=='matrix'">
+                                                                            <label><b>{{fgField.desc}}</b></label>
+                                                                            <div class="" >
+                                                                                    
+                                                                                    <div class="row m-4">
+                                                                                            <div  class="form-group" *ngFor="let item of fgField.matrixCol"  class="col">
+                                                                                            <div >
+                                                                                                    <label><b>{{item.name}}</b></label>
+                                                                                            </div>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <div   formArrayName="{{fgField.name}}"  >
+                                                                                    <div class="row" *ngFor="let item of myform.get(ele.name).controls[fgField.name].controls; let i = index;">
+                                                                                            <div  [formGroupName]="i" *ngFor="let item of fgField.matrixCol"  class="col">
+                                                                                            <div class="form-group">
+                                                                                                    <input class="form-control" type="{{item.type}}" formControlName="{{item.name}}"  (change)="updateval(fgField.name,ele.name)">
+                                                                                                    <errors [control]="myform.controls[ele.name].controls[fgField.name].controls[i].controls[item.name]" [formsubmitted]="formsubmitted" ></errors>
+                                                                                            </div>
+                                                                                            </div>
+                                                                                            <div class="col-1" *ngIf="myform.get(ele.name).controls[fgField.name].controls.length>1">
+                                                                                                    <button type="button" class="btn btn-sm btn-danger" (click)="removeMatrixRec(fgField.name,i,ele.name)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <div class="float-right">
+                                                                                            <button type="button" class="btn btn-sm btn-default" (click)="addMatrixRec(fgField.name,ele.name)">Add More</button>
+                                                                                    </div>
+                                                                                    </div>
+                                                                            </div>
+                                                                            
+                                                                            </div>
+                                                                            
+                                                                            <div *ngIf="fgField.type=='checklist'">
+                                                                                    <div class="list-group" id="list1">
+                                                                                            <a  class="list-group-item"  *ngFor="let item of fgField.list" >{{item.detail}}<input type="checkbox" class="float-right" ></a>
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                    
+                                    
+                                               </div>
+                                    
+                                    
+                                    
+                                    
+                                            </div>
+                                            <br>
+                                            <hr>
+                                            <div style="text-align:center">
+                                                           
+                                                <button class="btn btn-sm btn-primary" type="submit">submit</button>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        
+                                        <br>
+                                        <!-- Form from Json Code End -->
+                                    </div>
+        </div>
+        </div>
+        
+        

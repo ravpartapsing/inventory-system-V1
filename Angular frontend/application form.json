@@ -1,0 +1,167 @@
+[
+    {
+             "type": "fbGroup",
+             "name": "applicant",
+             "label": "Applicant Information",
+             "fgFields": [
+                      {
+                               "type": "empty",
+                               "name": "ep",
+                               "col": 12
+                      },
+                      {
+                               "type": "text",
+                               "name": "fname",
+                               "label": "First Name",
+                               "col": 4,
+                               "validation": {
+                                        "required": true,
+                                        "minlength": 3
+                               },
+                               "readonly": false,
+                               "relationWith": "",
+                               "requiredIf": []
+                      },
+                      {
+                               "type": "text",
+                               "name": "mname",
+                               "label": "Middle Name",
+                               "col": 4,
+                               "validation": {
+                                        "required": false
+                               },
+                               "readonly": false,
+                               "relationWith": "",
+                               "requiredIf": []
+                      },
+                      {
+                               "type": "text",
+                               "name": "lname",
+                               "label": "Last Name",
+                               "col": 4,
+                               "validation": {
+                                        "required": true,
+                                        "minlength": 3
+                               },
+                               "readonly": false,
+                               "relationWith": "",
+                               "requiredIf": []
+                      },
+                      {
+                               "type": "file",
+                               "name": "image",
+                               "label": "Photo of Applicant",
+                               "filetype": [
+                                        "jpg",
+                                        "png"
+                               ],
+                               "col": 6,
+                               "validation": {
+                                        "required": false
+                               }
+                      },
+                      {
+                               "type": "file",
+                               "name": "sign",
+                               "label": "Sign of Applicant",
+                               "filetype": [
+                                        "jpg",
+                                        "png"
+                               ],
+                               "col": 6,
+                               "validation": {
+                                        "required": false
+                               }
+                      },
+                      {
+                               "type": "text",
+                               "name": "factory",
+                               "label": "Name of Establishment/Factory",
+                               "col": 6,
+                               "validation": {
+                                        "required": true,
+                                        "minlength": 3
+                               }
+                      },
+                      {
+                               "type": "textarea",
+                               "name": "btype",
+                               "label": "Type of Business, trade, industry, manufacturing or occupation which is carried on",
+                               "col": 6,
+                               "validation": {
+                                        "required": true,
+                                        "minlength": 5
+                               }
+                      },
+                      {
+                               "type": "radio",
+                               "name": "pan_tan_aad",
+                               "label": "Aadhaar No. or PAN/TAN   :    ",
+                               "inline": true,
+                               "choices": [
+                                        "Aadhaar",
+                                        "Udyog Aadhaar",
+                                        "PAN/TAN",
+                                        "GST"
+                               ],
+                               "col": 12
+                      },
+                      {
+                               "type": "text",
+                               "name": "aadhaar",
+                               "label": "Aadhaar No.",
+                               "col": 12,
+                               "validation": {},
+                               "relationWith": "pan_tan_aad",
+                               "requiredIf": [
+                                        "Aadhaar"
+                               ],
+                               "showIf": [
+                                        "Aadhaar"
+                               ]
+                      },
+                      {
+                               "type": "text",
+                               "name": "uaadhaar",
+                               "label": "Udyog Aadhaar",
+                               "col": 12,
+                               "validation": {},
+                               "relationWith": "pan_tan_aad",
+                               "requiredIf": [
+                                        "Udyog Aadhaar"
+                               ],
+                               "showIf": [
+                                        "Udyog Aadhaar"
+                               ]
+                      },
+                      {
+                               "type": "text",
+                               "name": "pan_tan",
+                               "label": "PAN/TAN",
+                               "col": 12,
+                               "validation": {},
+                               "relationWith": "pan_tan_aad",
+                               "requiredIf": [
+                                        "PAN/TAN"
+                               ],
+                               "showIf": [
+                                        "PAN/TAN"
+                               ]
+                      },
+                      {
+                               "type": "text",
+                               "name": "gst",
+                               "label": "GST No",
+                               "col": 12,
+                               "validation": {},
+                               "relationWith": "pan_tan_aad",
+                               "requiredIf": [
+                                        "GST"
+                               ],
+                               "showIf": [
+                                        "GST"
+                               ]
+                      }
+             ]
+    }
+]

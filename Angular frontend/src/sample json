@@ -1,0 +1,52 @@
+elements=[
+    //1.X
+    {"type":"text","name":"reg_data","label":"1.1 Registration Form","col":6},
+    {"type":"select","name":"lic_year","label":"1.2 Licence for Years","choices":["For 1 Year","For 2 Year","For 3 Year","For 4 Year"],"value":["1","2","3","4"], "col":"6",  },
+    //empty spase
+    {"type":"empty","name":"ep","col":12},
+    //2.X
+
+    {"type":"text","name":"nmFcty","label":"2.1 Name of Factory","col":6},
+    {"type":"text","name":"lNo","label":"2.2 License Number of Factory","col":6},
+    {"type":"textarea","name":"siteLC","label":"2.3  Site Address/Location of Factory","col":6},
+    {"type":"textarea","name":"commAd","label":"2.4 Communication Address ","col":6},
+    //empty spase
+    {"type":"empty","name":"ep","col":12},
+    //3.x
+    {"type":"empty","name":"ep","col":12},
+    {"type":"info","name":"info","subHeader":"Nic Codes","desc":"pending yet. NIC codes component will be rendered here.work in progress on NIC compnents",col:6},
+    {"type":"matrix","name":"m1","label":"Perma Address","desc":" Manufacturing processes to be carried out in the factory during the next Twelve months ","matrixCol":[{"name":"Name1","type":"text"}],col:6},                                                                                                                                                                                                                                                                                        
+    //5.x 
+    {"type":"empty","name":"ep","col":12},
+    {"type":"number","name":"maxEmp","label":"5.1 Maximum number of workers proposed to be employed on any one day during the year","col":6},
+    {"type":"number","name":"maxOdEmp","label":"5.2 Number of workers to be ordinarily employed in the factory","col":6},
+    //6.x
+    {"type":"empty","name":"ep","col":12},
+    {"type":"number","name":"kwTotal","label":"6.1 Nature and total kilowatt of power installed or proposed to be installed*","col":6},
+    {"type":"number","name":"maxKw","label":"6.2 Maximum kilowatt of power proposed to be used","col":6},
+    //test formgroup
+    {"type":"empty","name":"ep","col":12},
+    {"type":"file","name":"image1","label":"Upload Image",filetype:['jpg','png'],"col":12},
+    {"type":"fbGroup","name":"manager","label":"Manager Information","fgFields":[
+          {"type":"text","name":"mngName","label":"7.1 Manager Name","col":6},
+          {"type":"text","name":"mngFName","label":"7.2 Manager's Father Name","col":6},
+          {"type":"number","name":"mngPhone","label":"7.3 Manager's Contact No. ","col":6},
+          {"type":"text","name":"mngEmail","label":"7.4 Manager's Email","col":6},
+          {"type":"address","name":"mngAdd","label":"Address", "showHeader":false,"col":12 },
+          {"type":"file","name":"image1","label":"Upload Image","col":12}
+        ]},
+      {"type":"empty","name":"ep","col":12},
+    {"type":"fbGroup","name":"occupier","label":"Occupier Information","fgFields":[
+        {"type":"text","name":"occName","label":"8.1 Occupier Name","col":6},
+        {"type":"text","name":"occFName","label":"8.2 Occupier's Father Name","col":6},
+        {"type":"number","name":"occgPhone","label":"8.3 Occupier's Contact No. ","col":6},
+        {"type":"text","name":"occEmail","label":"8.4 Occupier's Email","col":6},
+        {"type":"address","name":"occAdd","label":"Address", "showHeader":false,"col":12 },
+      ]},
+      {"type":"empty","name":"ep","col":12},
+      {"type":"fbGroup","name":"owner","label":"Owner Information","fgFields":[
+        {"type":"text","name":"ownerName","label":"9.1 Name of the owner of premises or building","col":4},
+        {"type":"address","name":"occAdd","label":"Address", "showHeader":false,"col":8 },
+        {"type":"file","name":"image1","label":"Upload Image",filetype:['jpg','png'],"col":12}
+      ]}
+  ];
