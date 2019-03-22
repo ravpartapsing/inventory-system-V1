@@ -11,7 +11,7 @@ import {Router} from '@angular/router'
 export class AddUpdateItemComponent implements OnInit {
 
   constructor(private csf:CommonService,private http:HttpClient ,private rt:Router) {
-     
+     this.csf.setShowNavs(true)
    }
 
 
@@ -92,7 +92,7 @@ save(data){
   this.http.post("http://localhost:3000/addItem",data).subscribe((resp)=>{
       
        if(resp['status']==true){
-          this.rt.navigate(['/dashboard'])
+          this.rt.navigate(['/list-items'])
        }else{
           alert(resp['err']);
        }

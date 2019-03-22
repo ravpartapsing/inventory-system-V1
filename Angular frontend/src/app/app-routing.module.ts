@@ -11,6 +11,8 @@ import { AddUpdateItemComponent } from './add-update-item/add-update-item.compon
 import { ListItemsComponent } from './list-items/list-items.component';
 import { ListLabsComponent } from './list-labs/list-labs.component';
 import { AddUpdateLabComponent } from './add-update-lab/add-update-lab.component';
+
+import { AssignItemComponent } from './assign-item/assign-item.component'
 const routes: Routes = [
   { path: 'loadForm', component: LoadFormComponent },
   { path: 'signup', component: SignupComponent },
@@ -20,7 +22,8 @@ const routes: Routes = [
    { path: 'list-items', component: ListItemsComponent },
   { path: 'list-labs', component: ListLabsComponent },
   { path: 'add-lab', component: AddUpdateLabComponent },
-  // { path: 'jsontool', component: FormGeneratorComponent }
+   { path: 'jsontool', component: FormGeneratorComponent },
+   { path: 'assign-item', component: AssignItemComponent }
 ];
 
 @NgModule({

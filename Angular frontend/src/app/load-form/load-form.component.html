@@ -112,6 +112,7 @@
                                                     <div class="form-group ">
                                                         <label >{{ele.label}}</label>
                                                         <select class="form-control" name="{{ele.name}}" [formControlName]="ele.name" >
+                                                            <option [value]="null">Please select</option>
                                                             <option *ngFor="let ch of ele.choices; let i = index;" value="{{ele.value[i]}}">{{ch}}</option>
                                                         </select> 
                                                     </div>

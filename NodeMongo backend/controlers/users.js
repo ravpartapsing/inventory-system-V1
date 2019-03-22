@@ -80,6 +80,11 @@ module.exports={
             req.session.errMsg="Email and Password Required";
             res.send(responseFun(false,null,null,req.session.errMsg))
         }      
+    },
+    listUsers:(req,res,next)=>{
+        getAll().then((users)=>{
+            res.send(responseFun(true,users))
+        });
     }
 }
 async function authenticate({ email, password }) {

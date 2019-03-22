@@ -21,7 +21,8 @@ import { AddUpdateLabComponent } from './add-update-lab/add-update-lab.component
 
 import {CommonService} from "./common.service";
 import { SidenaveComponent } from './sidenave/sidenave.component';
-import { TopnaveComponent } from './topnave/topnave.component'
+import { TopnaveComponent } from './topnave/topnave.component';
+import { AssignItemComponent } from './assign-item/assign-item.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { TopnaveComponent } from './topnave/topnave.component'
     ListLabsComponent,
     AddUpdateLabComponent,
     SidenaveComponent,
-    TopnaveComponent
+    TopnaveComponent,
+    AssignItemComponent
   ],
   imports: [
     BrowserModule,

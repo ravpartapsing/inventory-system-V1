@@ -1,5 +1,5 @@
 const db = require('../_helper/db');
-const Labs = db.Labs;
+const Labs = db.LabItems;
 var ItemMsg=require('./MsgController').itemMsg;
 var responseFun=require('./responseController');
 
@@ -14,25 +14,15 @@ module.exports={
            "logo": "logoname.jpg",
           }
         */
-        if(post.labname!==undefined){
-
-            Labs.findOne({ name: post.labname }).then((data)=> {
-                if(data && data.labname ){
-                   
-                   /* console.log("updating the ")
-                    Labs.updateOne({_id:data._id},post).then((data)=>{ res.send({status:true})}).catch((err)=>{console.log(err)});
-                    Object.assign(user, userParam);*/
-
-                    res.send(responseFun(false,null,null,"ITMEXIST",ItemMsg.errMsg.ITMEXIST))
-
-                }else{
+        if(post.itmes!==undefined){
+                      
                     Labs.create(post).then((data)=>{
                         res.send(responseFun(true,data,ItemMsg.successMsg.ITMADDSUCCESS))
                     }).catch((err)=>{
                         res.send(responseFun(false,null,null,err,ItemMsg.errMsg.ITMNOTSAVE))
                     });
-                }
-            })
+           
+            
         }else{
               res.send(responseFun(false,null,null,"WRONGPARAMS","Wrong Params or may be not send or may be some value is missing"))   
         }  
@@ -108,7 +98,7 @@ module.exports={
         */
         /***********************************/
         if(post._id!==undefined){
-            Labs.findOne({ _id: post._id }).then((data)=> {
+            Labs.find({ lab: post._id }).then((data)=> {
                 if(data && data._id ){
                     res.send(responseFun(true,data))
                 }else{

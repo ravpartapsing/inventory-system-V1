@@ -5,7 +5,7 @@ const schema = new Schema({
     itmes: { type:Schema.Types.ObjectId, required:true},
     lab: { type:  Schema.Types.ObjectId, required: true },
     itmcount:{type:Number,required:true},
-    createdDate: { type: Date, default: Date.now },
+    createdDate: { type: Date, default: Date.now }
    
 });
 

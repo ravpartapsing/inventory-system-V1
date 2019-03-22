@@ -1,5 +1,6 @@
 indexController=require('../controlers/index');
 labController=require('../controlers/labController');
+labMapController=require('../controlers/labItemController');
 usersController=require('../controlers/users');
 var cors = require('cors')
 var multer = require('multer')
@@ -78,6 +79,14 @@ var corsOptions = {
 
 
 
+  app.post('/addlabmap',labMapController.addLab);
+  app.post('/updatelabmap',labMapController.UpdateLab);
+  app.post('/deletelabmap',labMapController.deleteLab);
+  app.post('/getlabmapByCode',labMapController.getLabByCode);
+  app.post('/getAllLabmaps',labMapController.getLabs);
+
+
+
 
 
 /***********************************
@@ -87,9 +96,10 @@ app.post('/signup',usersController.signup)
 app.post('/login',usersController.signin)
 
 
-   
+app.get('/listUser',usersController.listUsers)
 
-  app.post('/upload/photo',upload.any(),indexController.uploadphoto); 
+
+app.post('/upload/photo',upload.any(),indexController.uploadphoto); 
 //app.get("/",(req,res,next)=>{res.redirect("/dashboard")})
 /*app.get('/dashboard',isLogedin,indexController.dashboardapps);
 app.get('/app/getApps',isLogedin,indexController.getAllApp); 

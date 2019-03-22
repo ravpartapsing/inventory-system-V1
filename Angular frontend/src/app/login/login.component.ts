@@ -68,7 +68,13 @@ save(data){
    console.log(data);
    this.http.post("http://localhost:3000/login",data).subscribe((resp)=>{
    	
+      console.log(resp)
+
    	 if(resp['status']==true){
+        if(resp['data'].email=="admin@gmail.com"){
+          resp['data'].isadmin=true
+        }
+       localStorage.setItem("user",JSON.stringify(resp['data']))
    	 	this.rt.navigate(['/dashboard'])
    	 }else{
    	 	alert(resp['err']);
