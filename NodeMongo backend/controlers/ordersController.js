@@ -71,7 +71,7 @@ module.exports={
         /***********************************/
         if(post._id!==undefined){
             Orders.findOne({ _id: post._id }).then((data)=> {
-                if(data && data._id ){
+                if(data ){
                     data.remove().then((data)=>{
                         res.send(responseFun(true,data,ItemMsg.successMsg.ITMDELETEDSUCCESS))
                     });
@@ -97,7 +97,7 @@ module.exports={
         /***********************************/
         if(post._id!==undefined){
             Orders.findOne({ _id: post._id }).then((data)=> {
-                if(data && data._id ){
+                if(data  ){
                     res.send(responseFun(true,data))
                 }else{
                     res.send(responseFun(false,null,null,"ITMNOTDELETED",ItemMsg.errMsg.ITMNOTFOUND))

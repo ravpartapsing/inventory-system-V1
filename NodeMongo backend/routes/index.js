@@ -89,6 +89,9 @@ var corsOptions = {
 
   app.post('/addorder',orderController.addOrder);
   app.post('/getallorders',orderController.getOrders);
+  app.post('/getorderbyid',orderController.getOrderByCode);
+  app.post('/deleteorder',orderController.deleteOrder);
+
   /*app.post('/updatelabmap',labMapController.UpdateLab);
   app.post('/deletelabmap',labMapController.deleteLab);
   app.post('/getlabmapByCode',labMapController.getLabByCode);

@@ -31,8 +31,12 @@ const routes: Routes = [
    { path: 'assign-item', component: AssignItemComponent },
     { path: 'make-order', component: MakeorderComponent },
      { path: 'my-labs', component: ListmylabsComponent },
-     { path: 'orders', component: ListorderComponent }
+     { path: 'orders', component: ListorderComponent },
+     { path: 'vieworder/:id', component: ProcessorderComponent }
+
 ];
+
+
 
 @NgModule({
   imports: [

@@ -80,7 +80,7 @@ export class MakeorderComponent implements OnInit {
        let oi=this.orderItems.map(i=>{return {_id:i._id,count:i.count}})
        
        let data={
-          itmes: oi,
+          itmes:this.orderItems,
           lab: this.lab
        }
        console.log(data)
