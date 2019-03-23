@@ -2,6 +2,7 @@ indexController=require('../controlers/index');
 labController=require('../controlers/labController');
 labMapController=require('../controlers/labItemController');
 usersController=require('../controlers/users');
+orderController=require('../controlers/ordersController');
 var cors = require('cors')
 var multer = require('multer')
 const db = require('../_helper/db');
@@ -75,6 +76,7 @@ var corsOptions = {
   app.post('/deletelab',labController.deleteLab);
   app.post('/getlabByCode',labController.getLabByCode);
   app.post('/getAllLabs',labController.getLabs);
+  app.post('/getLabByUser',labController.getLabByUser);
   
 
 
@@ -84,6 +86,13 @@ var corsOptions = {
   app.post('/deletelabmap',labMapController.deleteLab);
   app.post('/getlabmapByCode',labMapController.getLabByCode);
   app.post('/getAllLabmaps',labMapController.getLabs);
+
+  app.post('/addorder',orderController.addOrder);
+  app.post('/getallorders',orderController.getOrders);
+  /*app.post('/updatelabmap',labMapController.UpdateLab);
+  app.post('/deletelabmap',labMapController.deleteLab);
+  app.post('/getlabmapByCode',labMapController.getLabByCode);
+  app.post('/getAllLabmaps',labMapController.getLabs);*/
 
 
 

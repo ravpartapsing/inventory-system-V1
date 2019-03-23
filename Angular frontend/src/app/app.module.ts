@@ -22,7 +22,12 @@ import { AddUpdateLabComponent } from './add-update-lab/add-update-lab.component
 import {CommonService} from "./common.service";
 import { SidenaveComponent } from './sidenave/sidenave.component';
 import { TopnaveComponent } from './topnave/topnave.component';
-import { AssignItemComponent } from './assign-item/assign-item.component'
+import { AssignItemComponent } from './assign-item/assign-item.component';
+import { MakeorderComponent } from './makeorder/makeorder.component';
+import { ProcessorderComponent } from './processorder/processorder.component';
+import { ListorderComponent } from './listorder/listorder.component';
+import { ListlabitemComponent } from './listlabitem/listlabitem.component';
+import { ListmylabsComponent } from './listmylabs/listmylabs.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,12 @@ import { AssignItemComponent } from './assign-item/assign-item.component'
     AddUpdateLabComponent,
     SidenaveComponent,
     TopnaveComponent,
-    AssignItemComponent
+    AssignItemComponent,
+    MakeorderComponent,
+    ProcessorderComponent,
+    ListorderComponent,
+    ListlabitemComponent,
+    ListmylabsComponent
   ],
   imports: [
     BrowserModule,

@@ -13,23 +13,29 @@
                         Sr.No
                         </th>
                         <th>
-                         Lab Name
+                         Order Date
                         </th>
                         <th>
-                         Lab Instructor
+                        Lab
+                        </th>
+                        <th>
+                         Action
                         </th>
                        
                       </thead>
                       <tbody >
-                        <tr *ngFor="let item of labList; let i = index">
+                        <tr *ngFor="let item of orderlist; let i = index">
                           <td>
-                            {{i+1}}
+                           {{i+1}}
                           </td>
                           <td>
+                           Order-{{item.createdDate}}
+                          </td>
+                           <td>
                            {{item.labname}}
                           </td>
                           <td>
-                            {{item.name}}
+                            <a class="btn" routerLink="/vieworder/{{item._id}}">Process</a>
                           </td>
                          
                         </tr>

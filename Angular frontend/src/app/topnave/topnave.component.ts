@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-topnave',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopnaveComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rt:Router) { }
 
   ngOnInit() {
   }
 
+  logout(){
+  	localStorage.removeItem('user');
+  	this.rt.navigate(['/'])
+  }
 }

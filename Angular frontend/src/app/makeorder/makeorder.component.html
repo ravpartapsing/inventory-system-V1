@@ -1,0 +1,68 @@
+ <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title text-center">Create Order</h4>
+                  <p class="card-category">Request Administrator to Allow more Items</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                  	<div class="form-group">
+                  	<label>Please Select lab</label>
+                    <select class="form-control" [(ngModel)]="lab" [ngModelOptions]="{standalone: true}">
+                    	<option [value]="null">Please Select Lab</option>
+                    	<option *ngFor="let i of labs" [value]="i._id">{{i.labname}}</option>
+                    </select>
+                	</div>
+                  </form>
+                  <form>
+                  	<div class="form-group">
+                  	<label>Please Select Item</label>
+                    <select class="form-control" [(ngModel)]="itemSelected" [ngModelOptions]="{standalone: true}" >
+                    	<option [value]="null">Please Select Item</option>
+                    	<option *ngFor="let i of items" [value]="i._id">{{i.name}}(Code:'{{i.code}}') --- MAX Available {{i.quantity}}</option>
+                    </select>
+                    <button class="btn" (click)="addItem()"> Add</button>
+                	</div>
+                	<div class="row" *ngIf="orderItems.length>0">
+                	<h3>List of Items Selectd</h3>
+                	<div class="col-12">
+	                	<div class="card" style="margin-top:3px !important;margin-bottom: 1px !important">
+	                		<div class="card-body" style="background: #f2f2f2 !important">
+		                	 		<div class="row" >
+			                	 		<div class="col-2">Sr No</div>
+			                	 		<div class="col-6"><p><strong>Item Name</strong></p></div>
+			                	 		<div class="col-2">Max</div>
+			                	 		<div class="col-2">Count</div>
+		                	 		</div>
+		                	 </div>
+	                	 </div>
+                	 </div>
+                	 <div *ngFor="let i of orderItems; let j=index" class="col-12">
+                	 		
+                	 		<div class="card" style="margin-top:3px !important;margin-bottom: 1px !important">
+                	 			<div class="card-body" style="background: #f2f2f2 !important">
+	                	 		<div class="row" >
+		                	 		<div class="col-2"><strong>{{j+1}}</strong></div>
+		                	 		<div class="col-6"><p><strong>{{i.name}}</strong></p></div>
+		                	 		<div class="col-2">{{i.max}}</div>
+		                	 		<div class="col-2">{{i.count }} <button style="padding: 10px 17px !important;" class="btn" (click)="inc(j)">+</button> <button style="padding: 10px 17px !important;"   class="btn"  (click)="dec(j)">-</button></div>
+	                	 		</div>
+	                	 		</div>
+                	 		</div>
+                	 </div>
+                	 <div class="col-12">
+                	 <button  class="btn btn-info float-right" (click)="makeOrder()">Order</button>
+                	 </div>
+                	 
+                	</div>
+                  </form>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>

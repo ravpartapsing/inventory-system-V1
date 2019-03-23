@@ -2,6 +2,10 @@ const db = require('../_helper/db');
 const Labs = db.Labs;
 var ItemMsg=require('./MsgController').itemMsg;
 var responseFun=require('./responseController');
+var mongoose = require('mongoose');
+
+var Types = mongoose.Types,
+    ObjectId = Types.ObjectId;
 
 module.exports={
     
@@ -110,6 +114,30 @@ module.exports={
         if(post._id!==undefined){
             Labs.findOne({ _id: post._id }).then((data)=> {
                 if(data && data._id ){
+                    res.send(responseFun(true,data))
+                }else{
+                    res.send(responseFun(false,null,null,"ITMNOTDELETED",ItemMsg.errMsg.ITMNOTFOUND))
+                }
+            })
+        }else{
+              res.send(responseFun(false,null,null,"WRONGPARAMS","Wrong Params or may be not send or may be some value is missing"))   
+        }
+    },
+     getLabByUser:(req,res,next)=>{
+        var post=req.body;
+
+        /***********************************
+        *********** Sample API Params*******
+        *************************************/
+        /*{
+            _id:"ITM-ASDF12345", //requried field  
+          }
+        */
+        /***********************************/
+        if(post._id!==undefined){
+          console.log(new ObjectId(post._id))
+            Labs.find({ instructor:new ObjectId(post._id.toString()) }).then((data)=> {
+                if(data){
                     res.send(responseFun(true,data))
                 }else{
                     res.send(responseFun(false,null,null,"ITMNOTDELETED",ItemMsg.errMsg.ITMNOTFOUND))

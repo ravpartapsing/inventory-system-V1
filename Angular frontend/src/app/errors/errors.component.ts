@@ -53,9 +53,8 @@ export class ErrorsComponent {
       return "A-Z or a-z pattern"
     }
 
-     if(pattren=='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$'){
-      return "Password must be at least 8 characters, no more than 30 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit"
-    } 
+     if(pattren=='^([a-zA-Z0-9@*#]{8,30})$'){
+      return "does not match password patten"    } 
 
 
  if(pattren=='^[0-9]{8,10}$' ){

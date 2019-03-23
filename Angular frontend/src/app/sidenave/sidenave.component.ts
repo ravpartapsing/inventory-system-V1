@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SidenaveComponent implements OnInit {
 
   constructor() { }
-
+  user
   ngOnInit() {
+  	this.user=JSON.parse(localStorage.getItem('user'));
+  	//console.log(this.user,"========")
   }
 
 }

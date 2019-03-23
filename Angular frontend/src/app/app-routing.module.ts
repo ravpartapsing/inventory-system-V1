@@ -13,6 +13,11 @@ import { ListLabsComponent } from './list-labs/list-labs.component';
 import { AddUpdateLabComponent } from './add-update-lab/add-update-lab.component';
 
 import { AssignItemComponent } from './assign-item/assign-item.component'
+import { MakeorderComponent } from './makeorder/makeorder.component';
+import { ProcessorderComponent } from './processorder/processorder.component';
+import { ListorderComponent } from './listorder/listorder.component';
+import { ListlabitemComponent } from './listlabitem/listlabitem.component';
+import { ListmylabsComponent } from './listmylabs/listmylabs.component'
 const routes: Routes = [
   { path: 'loadForm', component: LoadFormComponent },
   { path: 'signup', component: SignupComponent },
@@ -23,7 +28,10 @@ const routes: Routes = [
   { path: 'list-labs', component: ListLabsComponent },
   { path: 'add-lab', component: AddUpdateLabComponent },
    { path: 'jsontool', component: FormGeneratorComponent },
-   { path: 'assign-item', component: AssignItemComponent }
+   { path: 'assign-item', component: AssignItemComponent },
+    { path: 'make-order', component: MakeorderComponent },
+     { path: 'my-labs', component: ListmylabsComponent },
+     { path: 'orders', component: ListorderComponent }
 ];
 
 @NgModule({
