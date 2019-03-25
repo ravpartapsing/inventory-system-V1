@@ -24,6 +24,8 @@
                         <th>
                           Price
                         </th>
+                        <th>Action
+                        </th>
                       </thead>
                       <tbody >
                         <tr *ngFor="let item of itemList; let i = index">
@@ -41,6 +43,9 @@
                           </td>
                           <td class="text-primary">
                             {{item.price}} Rs
+                          </td>
+                          <td>
+                           <button (click)="delete(item.code)"><i style="color:red;" class="fa fa-trash-o"></i></button> 
                           </td>
                         </tr>
               

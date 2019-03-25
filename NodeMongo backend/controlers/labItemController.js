@@ -2,7 +2,8 @@ const db = require('../_helper/db');
 const Labs = db.LabItems;
 var ItemMsg=require('./MsgController').itemMsg;
 var responseFun=require('./responseController');
-
+/*var Types = mongoose.Types,
+    ObjectId = Types.ObjectId;*/
 module.exports={
     
   
@@ -99,7 +100,7 @@ module.exports={
         /***********************************/
         if(post._id!==undefined){
             Labs.find({ lab: post._id }).then((data)=> {
-                if(data && data._id ){
+                if(data ){
                     res.send(responseFun(true,data))
                 }else{
                     res.send(responseFun(false,null,null,"ITMNOTDELETED",ItemMsg.errMsg.ITMNOTFOUND))
@@ -109,6 +110,7 @@ module.exports={
               res.send(responseFun(false,null,null,"WRONGPARAMS","Wrong Params or may be not send or may be some value is missing"))   
         }
     },
+
     getLabs:(req,res,next)=>{
         var post=req.body;
         /***********************************

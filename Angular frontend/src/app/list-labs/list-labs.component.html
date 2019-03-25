@@ -18,6 +18,9 @@
                         <th>
                          Lab Instructor
                         </th>
+                        <th>Action
+                        </th>
+
                        
                       </thead>
                       <tbody >
@@ -31,7 +34,9 @@
                           <td>
                             {{item.name}}
                           </td>
-                         
+                           <td>
+                           <button (click)="delete(item.code)"><i style="color:red;" class="fa fa-trash-o"></i></button> 
+                          </td>
                         </tr>
               
                       </tbody>

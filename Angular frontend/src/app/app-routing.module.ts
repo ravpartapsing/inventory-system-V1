@@ -32,7 +32,8 @@ const routes: Routes = [
     { path: 'make-order', component: MakeorderComponent },
      { path: 'my-labs', component: ListmylabsComponent },
      { path: 'orders', component: ListorderComponent },
-     { path: 'vieworder/:id', component: ProcessorderComponent }
+     { path: 'vieworder/:id', component: ProcessorderComponent },
+     { path: 'list-lab-items/:id', component: ListlabitemComponent }
 
 ];
 
