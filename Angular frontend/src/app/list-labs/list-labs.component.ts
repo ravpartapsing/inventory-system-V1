@@ -50,7 +50,7 @@ export class ListLabsComponent implements OnInit {
 
 
   delete(code){
-   this.http.post("http://localhost:3000/deletelab",{code:code}).subscribe((resp)=>{
+   this.http.post("http://localhost:3000/deletelab",{_id:code}).subscribe((resp)=>{
        
        if(resp['status']==true){
           window.location.reload();
