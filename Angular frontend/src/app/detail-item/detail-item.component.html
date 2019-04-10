@@ -1,0 +1,83 @@
+<div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Item Detail Page</h4>
+                  <p class="card-category"> </p>
+                </div>
+				<div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th colspan="2">
+                       Item Details
+                        </th>
+                    
+                        
+
+                       
+                      </thead>
+                      <tbody >
+                        <tr >
+                          <td>
+                            Item Name
+                          </td>
+                          <td>
+                           {{dataToInit.name}}
+                          </td>
+                        </tr>
+
+                        <tr >
+                          <td>
+                            Item Price
+                          </td>
+                          <td>
+                           {{dataToInit.price}} Rs
+                          </td>
+                        </tr>
+
+
+                        <tr >
+                          <td>
+                            Item Company
+                          </td>
+                          <td>
+                           {{dataToInit.company}}
+                          </td>
+                        </tr>
+
+                        <tr >
+                          <td>
+                            Item Quantity
+                          </td>
+                          <td>
+                           {{dataToInit.quantity}}
+                          </td>
+                        </tr>
+
+                        <tr >
+                          <td>
+                            Item Added Date
+                          </td>
+                          <td>
+                           {{dataToInit.createdDate}}
+                          </td>
+                        </tr>
+
+                        <tr >
+                          <td colspan="2" class="text-center">
+                           <a  title="Edit/Update" class="btn" style="padding: 12px 12px !important;" routerLink="/update-item/{{dataToInit.code}}">Update Item</a> 
+                           <button class="btn" style="padding: 12px 12px !important;"  (click)="delete(dataToInit.code)">Delete Item</button>
+                          </td>
+                     
+                        </tr>
+              
+
+               <!--    -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                 </div>
+            </div>
+           </div>

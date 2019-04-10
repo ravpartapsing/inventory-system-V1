@@ -6,7 +6,7 @@ var responseFun=require('./responseController');
 module.exports={
     
     uploadphoto:(req,res,next)=>{
-        console.log(",,,,,,,,,,,")
+        console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,")
         console.log(req.files,"////////////////");
         res.send({filename:req.files[0].filename})
     },
@@ -87,11 +87,9 @@ module.exports={
 
 
         if(post.code!==undefined){
-
             //post.code="ITM-"+makeidCapsABC(4)+makeidInt(5);
             Items.findOne({ code: post.code }).then((data)=> {
                 if(data && data.code ){
-                   
                     console.log("updating the ")
                     Items.updateOne({_id:data._id},post).then((data)=>{
                         res.send(responseFun(true,data,ItemMsg.successMsg.ITMUPDATESUCCESS))

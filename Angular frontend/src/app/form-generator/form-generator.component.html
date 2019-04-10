@@ -85,7 +85,7 @@
                                                             
                                                                  <div class="form-group">
                                                                          <label for="exampleInputEmail1">{{ele.label}}</label>
-                                                                         <input type="file" (change)="fileEvent($event,myform.get(ele.name),ele.filetype)" class="form-control" value="">
+                                                                         <button type="file" (change)="fileEvent($event,myform.get(ele.name),ele.filetype)" class="form-control" value=""> Upload Photo</button>
                                                                          <input type="hidden"  [formControlName]="ele.name">
                                                                          <errors [control]="myform.controls[ele.name]" [formsubmitted]="formsubmitted" ></errors>
                                                                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->

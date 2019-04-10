@@ -87,7 +87,7 @@ module.exports={
         /***********************************/
         if(post._id!==undefined){
             Labs.findOne({ _id: post._id }).then((data)=> {
-                if(data && data._id ){
+                if(data  ){
                     data.remove().then((data)=>{
                         res.send(responseFun(true,data,ItemMsg.successMsg.ITMDELETEDSUCCESS))
                     });

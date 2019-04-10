@@ -7,6 +7,7 @@ var cors = require('cors')
 var multer = require('multer')
 const db = require('../_helper/db');
 const User = db.Users;
+var path =require('path')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -15,7 +16,7 @@ var storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         console.log(file)
-      cb(null, file.fieldname + '-' + Date.now())
+      cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
     }
   })
 
@@ -111,7 +112,9 @@ app.post('/login',usersController.signin)
 app.get('/listUser',usersController.listUsers)
 
 
-app.post('/upload/photo',upload.any(),indexController.uploadphoto); 
+app.post('/upload/image',upload.any(),indexController.uploadphoto); 
+//app.get('/upload/image',upload.any(),indexController.uploadphoto); 
+
 //app.get("/",(req,res,next)=>{res.redirect("/dashboard")})
 /*app.get('/dashboard',isLogedin,indexController.dashboardapps);
 app.get('/app/getApps',isLogedin,indexController.getAllApp); 

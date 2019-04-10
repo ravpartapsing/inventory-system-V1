@@ -16,6 +16,9 @@
                          Item Name
                         </th>
                         <th>
+                          Item Photo
+                        </th>
+                        <th>
                           Quantity
                         </th>
                         <th>
@@ -30,10 +33,13 @@
                       <tbody >
                         <tr *ngFor="let item of itemList; let i = index">
                           <td>
-                            {{i}}
+                            {{i+1}}
                           </td>
                           <td>
                            {{item.name}}
+                          </td>
+                          <td>
+                            <img style="width: 140px; height: 120px;" src="http://localhost:3000/uploaded/{{item.photo}}" onerror=" this.src = '/assets/error.png';" >
                           </td>
                           <td>
                             {{item.quantity}}
@@ -45,7 +51,12 @@
                             {{item.price}} Rs
                           </td>
                           <td>
-                           <button (click)="delete(item.code)"><i style="color:red;" class="fa fa-trash-o"></i></button> 
+                           
+                          <a  title="Edit/Update" class="btn btn-primary" style="padding: 12px 12px !important;" routerLink="/update-item/{{item.code}}"><i style="color:white;" class="fa fa-pencil"></i></a> 
+
+                          <a  title="View" class="btn btn-primary" style="padding: 12px 12px !important;" routerLink="/detail-item/{{item.code}}"><i style="color:white;" class="fa fa-eye"></i></a> 
+
+                           <a title="Delete " class="btn btn-primary" style="padding: 12px 12px !important;" (click)="delete(item.code)"><i style="color:red;" class="fa fa-trash-o"></i></a> 
                           </td>
                         </tr>
               

@@ -18,24 +18,27 @@ import { ProcessorderComponent } from './processorder/processorder.component';
 import { ListorderComponent } from './listorder/listorder.component';
 import { ListlabitemComponent } from './listlabitem/listlabitem.component';
 import { ListmylabsComponent } from './listmylabs/listmylabs.component'
+import { DetailItemComponent } from './detail-item/detail-item.component'
 const routes: Routes = [
   { path: 'loadForm', component: LoadFormComponent },
   { path: 'signup', component: SignupComponent },
   { path: '', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'add-items', component: AddUpdateItemComponent },
-   { path: 'list-items', component: ListItemsComponent },
+  { path: 'detail-item/:itmcode', component: DetailItemComponent },
+  { path: 'update-item/:itmcode', component: AddUpdateItemComponent },
+  { path: 'list-items', component: ListItemsComponent },
   { path: 'list-labs', component: ListLabsComponent },
   { path: 'add-lab', component: AddUpdateLabComponent },
-   { path: 'jsontool', component: FormGeneratorComponent },
-   { path: 'assign-item', component: AssignItemComponent },
-    { path: 'make-order', component: MakeorderComponent },
-     { path: 'my-labs', component: ListmylabsComponent },
-     { path: 'orders', component: ListorderComponent },
-     { path: 'vieworder/:id', component: ProcessorderComponent },
-     { path: 'list-lab-items/:id', component: ListlabitemComponent }
-
-];
+  { path: 'update-lab/:lab', component: AddUpdateLabComponent },
+  { path: 'jsontool', component: FormGeneratorComponent },
+  { path: 'assign-item', component: AssignItemComponent },
+  { path: 'make-order', component: MakeorderComponent },
+  { path: 'my-labs', component: ListmylabsComponent },
+  { path: 'orders', component: ListorderComponent },
+  { path: 'vieworder/:id', component: ProcessorderComponent },
+  { path: 'list-lab-items/:id', component: ListlabitemComponent }
+]
 
 
 

@@ -27,7 +27,8 @@ import { MakeorderComponent } from './makeorder/makeorder.component';
 import { ProcessorderComponent } from './processorder/processorder.component';
 import { ListorderComponent } from './listorder/listorder.component';
 import { ListlabitemComponent } from './listlabitem/listlabitem.component';
-import { ListmylabsComponent } from './listmylabs/listmylabs.component'
+import { ListmylabsComponent } from './listmylabs/listmylabs.component';
+import { DetailItemComponent } from './detail-item/detail-item.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { ListmylabsComponent } from './listmylabs/listmylabs.component'
     ProcessorderComponent,
     ListorderComponent,
     ListlabitemComponent,
-    ListmylabsComponent
+    ListmylabsComponent,
+    DetailItemComponent
   ],
   imports: [
     BrowserModule,

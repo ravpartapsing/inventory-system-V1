@@ -4,12 +4,12 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title text-center">Add New Lab</h4>
-                  <p class="card-category">Enter Lab Detials</p>
+                  <h4 class="card-title text-center">{{(isUpdate==true)?'Update':'Add New' }} Lab</h4>
+                  <p class="card-category">{{(isUpdate==true)?'Update':'Enter'}} Lab Detials</p>
                 </div>
                 <div class="card-body">
                   <form>
-                    <app-load-form (getData)="save($event)"   [isBorder]="false" [elements]="labAddForm"></app-load-form>
+                    <app-load-form (getData)="isUpdate?update($event):save($event)"   [isBorder]="false"  [dataToInit]="dataToInit"  [elements]="labAddForm" *ngIf="showform==true"></app-load-form>
                     
                   </form>
                 </div>

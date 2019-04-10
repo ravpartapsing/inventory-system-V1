@@ -12,6 +12,8 @@ import {
 } from "@angular/forms";
 
 import {HttpClient,HttpParams} from '@angular/common/http';
+
+declare var $;
 @Component({
   selector: 'app-load-form',
   templateUrl: './load-form.component.html',
@@ -116,6 +118,12 @@ export class LoadFormComponent  {
       teh:new FormControl(teh, Validators.required)
     })
   }
+
+
+chooseFile(id){
+   $("#"+id).click();
+}
+
  updateval(form,fg?){
    let a;
    if(fg){
@@ -127,6 +135,7 @@ export class LoadFormComponent  {
    a.updateValueAndValidity();
  }
   createForm(elements,fbgroup?) {
+    console.log(this.dataToInit)
     let testForm={}
     for(let i=0;i<elements.length;i++){
       if(elements[i].type=="address"){
