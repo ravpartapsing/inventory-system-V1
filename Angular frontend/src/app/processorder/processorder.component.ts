@@ -54,6 +54,10 @@ export class ProcessorderComponent implements OnInit {
   save(){
   	
     this.orderItems.map((i)=>{
+      this.http.post("http://localhost:3000/getlabmap",{_id:this.order.lab,itm:i._id}).subscribe((resp)=>{
+
+       let itminlab=resp['data'];
+       
     	let data ={
     		itmes:i._id,
     		lab:this.order.lab,
@@ -64,8 +68,11 @@ export class ProcessorderComponent implements OnInit {
     	let data2 ={
     		itmes:i._id,
     		lab:this.order.lab,
-    		itmcount:i.count
+    		itmcount:(itminlab.length>0)?parseInt(i.count)+itminlab[0].itmcount:i.count
     	}
+
+      
+
     	this.http.post("http://localhost:3000/addlabmap",data2).subscribe((resp)=>{
     		if(resp['status']==true){
       			let itm={_id:data.itmes,code:data.code,quantity:(parseInt(data.max)-parseInt(data.itmcount))}
@@ -74,6 +81,7 @@ export class ProcessorderComponent implements OnInit {
       		}
       		
     	})
+    });
     })
     this.http.post("http://localhost:3000/deleteorder",{_id:this.order._id}).subscribe((resp)=>{
     	this.rt.navigate(['/orders'])

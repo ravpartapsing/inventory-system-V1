@@ -111,6 +111,30 @@ module.exports={
         }
     },
 
+     getLabitem:(req,res,next)=>{
+        var post=req.body;
+
+        /***********************************
+        *********** Sample API Params*******
+        *************************************/
+        /*{
+            _id:"ITM-ASDF12345", //requried field  
+          }
+        */
+        /***********************************/
+        if(post._id!==undefined){
+            Labs.find({ lab: post._id,itmes:post.itm }).then((data)=> {
+                if(data ){
+                    res.send(responseFun(true,data))
+                }else{
+                    res.send(responseFun(false,null,null,"ITMNOTDELETED",ItemMsg.errMsg.ITMNOTFOUND))
+                }
+            })
+        }else{
+              res.send(responseFun(false,null,null,"WRONGPARAMS","Wrong Params or may be not send or may be some value is missing"))   
+        }
+    },
+
     getLabs:(req,res,next)=>{
         var post=req.body;
         /***********************************

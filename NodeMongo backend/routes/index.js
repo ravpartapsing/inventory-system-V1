@@ -82,7 +82,9 @@ var corsOptions = {
 
 
 
+
   app.post('/addlabmap',labMapController.addLab);
+  app.post('/getlabmap',labMapController.getLabitem);
   app.post('/updatelabmap',labMapController.UpdateLab);
   app.post('/deletelabmap',labMapController.deleteLab);
   app.post('/getlabmapByCode',labMapController.getLabByCode);
